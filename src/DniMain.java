@@ -5,12 +5,10 @@ public class DniMain {
 		// TODO Auto-generated method stub
 
 		DNI nif = new DNI();
-		String numeracionGuardar = nif.leerNumero();
-		nif.setNumero(numeracionGuardar);
+		nif.leerNumero();
 		
-		char letraGuardar = nif.obtenerLetra(numeracionGuardar);
-		nif.setLetra(letraGuardar);
-		
+
+
 		System.out.println(nif.toString());
 	}
 

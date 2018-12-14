@@ -5,18 +5,18 @@ public class DNI {
 	/*
 	 * ATRIBUTOS
 	 */
-	private String numero;
+	private int numero;
 	private char letra;
 	
 	
 	/*
 	 * GETTERS Y SETTERS
 	 */
-	public String getNumero() {
+	public int getNumero() {
 		return numero;
 	}
-	public void setNumero(String numero) {
-		this.numero = numero;
+	public void setNumero(int numeracionGuardar) {
+		this.numero = numeracionGuardar;
 	}
 	public char getLetra() {
 		return letra;
@@ -36,31 +36,26 @@ public class DNI {
 	/*
 	 * METODOS
 	 */
+	
+	//Metodos finales, scanner en este caso
 	public static Scanner scan = new Scanner(System.in);
 	
 	
-	public String leerNumero() {
+	//metodo para leer el numero del dni 
+	public int leerNumero() {
 		
-		String numeracion;
+		System.out.println("Introduce el numero del dni");
+		 numero = scan.nextInt();
 		
-		System.out.println("Introduce el numero de tu dni de 8 cifras");
-		numeracion = scan.next();
+		letra = obtenerLetra(numero);
 		
-	
-		return numeracion;
+		return numero;
 	}
 	
-	public char obtenerLetra(String  numero) {
+	private char obtenerLetra(int numero) {
+				char letrasDni[] = {'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'}; 
 		
-		char letrasDni[] = {'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'}; 
-		char letraObtenida  = 'A';
-		int numeroDeLetra;
-		
-		numeroDeLetra = Integer.parseInt(numero) % 23;
-		
-		letraObtenida = letrasDni[numeroDeLetra];
-		
-		return letraObtenida;
+		return letrasDni[numero%23];
 		
 	}
 	
